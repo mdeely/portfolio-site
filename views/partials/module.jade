@@ -1,0 +1,19 @@
+mixin navigation(back)
+    - if (back)
+        a.nav-item.back(href="/")
+            span
+    button.nav-item.menu
+      .menu-trigger
+        span
+      ul.menu-container
+        li: a Portfolio
+        li: a About
+        li: a Contact
+        li: a Resume
+
+mixin masthead
+        nav.masthead&attributes(attributes)
+            ul
+                li Design
+                li.name Marc Deely
+                li Code
