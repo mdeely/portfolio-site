@@ -109,6 +109,7 @@ body {
   font-family: 'Lato';
   background-color: #f9f9f9;
   color: #333;
+  line-height: 1.5;
 }
 .cf {
   zoom: 1;
@@ -122,10 +123,11 @@ body {
   clear: both;
 }
 h1 {
-  font-size: 32px;
+  font-size: 44px;
+  text-transform: capitalize;
 }
 p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5em;
   padding: 0 20px;
 }
@@ -462,7 +464,7 @@ nav.masthead ul li.name {
 }
 .masthead.project-header {
   background-color: #f9f9f9;
-  background-image: url("/images/trois.png");
+  background-image: url("/images/riseAndShineDesktop.png");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -493,7 +495,6 @@ nav.masthead ul li.name {
 }
 .project-title {
   text-align: center;
-  height: 18vh;
 }
 .project-title h1 {
   margin-bottom: 16px;

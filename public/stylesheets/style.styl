@@ -76,6 +76,7 @@ body {
     font-family: 'Lato';
     background-color: $backgroundColor;
     color: $black;
+    line-height: 1.5;
 }
 
 // Clearfix
@@ -84,10 +85,13 @@ body {
     clearfix()
 }
 
-h1 { font-size: 32px; }
+h1 {
+    font-size: 44px;
+    text-transform: capitalize;
+}
 
 p  {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5em;
     padding: 0 20px;
 }
@@ -307,7 +311,7 @@ nav.masthead {
 .masthead {
     &.project-header {
         background-color: $backgroundColor;
-        background-image: url("/images/trois.png");
+        background-image: url("/images/riseAndShineDesktop.png");
         background-size: cover;
         background-position: 50% 0;
         background-attachment: fixed;
@@ -339,7 +343,6 @@ nav.masthead {
 
 & .project-title {
     text-align: center;
-    height: 18vh;
 
     h1 {
         margin-bottom: 16px;

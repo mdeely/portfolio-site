@@ -32,7 +32,10 @@ app.get('/', function (req, res) {
 
 app.get('/:project', function (req, res) {
   var project = req.params.project;
-  res.render(project);
+  res.locals.projectName = project;
+
+  var obj = require('./views/db.json');
+  res.render( 'project', obj );
 })
 
 app.listen(3000)
