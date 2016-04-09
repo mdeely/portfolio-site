@@ -25,14 +25,18 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res) {
-  res.render('index',
-  { title : 'Marc Deely\'s Portfolio' }
-  )
+  var obj = require('./views/db.json');
+  res.render( 'index', obj );
 })
 
-app.get('/:project', function (req, res) {
-  var project = req.params.project;
-  res.locals.projectName = project;
+app.get('/about', function (req, res) {
+  res.render( 'about' );
+})
+
+app.get('/:id', function (req, res) {
+  var id = (req.params.id - 1);
+
+  res.locals.projectID = id;
 
   var obj = require('./views/db.json');
   res.render( 'project', obj );

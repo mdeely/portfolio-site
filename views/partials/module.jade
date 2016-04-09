@@ -1,4 +1,4 @@
-mixin navigation(back)
+mixin navigation(back, home, about)
     - if (back)
         a.nav-item.back(href="/")
             span
@@ -6,14 +6,37 @@ mixin navigation(back)
       .menu-trigger
         span
       ul.menu-container
-        li: a Portfolio
-        li: a About
-        li: a Contact
-        li: a Resume
+        - if (home)
+            li: a.current Home
+        - else
+            li: a(href="/") Home
+        - if (about)
+            li: a.current About
+        - else
+            li: a(href="/about") About
+        li: a(href="mailto:themarcusdeely@gmail.com")  Contact
+        li: a(href="/photography")  Photography
 
-mixin masthead
-        nav.masthead&attributes(attributes)
+
+mixin masthead(hero, project)
+    - if (hero)
+        nav.masthead.project-header
+            .hero(style="background-color: #{projects[projectID].theme}")
+     - else
+        nav.masthead
             ul
                 li Design
                 li.name Marc Deely
                 li Code
+
+mixin imageCollection(project)
+    - if (project.images.collection && project.images.collection.length)
+        .collection-container
+            - for image in project.images.collection
+                .collection
+                    img(src='/images/#{image.fileName}')
+                    p
+                        span #{image.description}
+
+mixin scrollToTop
+    button.scrollToTop Scroll to top

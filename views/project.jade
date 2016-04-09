@@ -1,14 +1,13 @@
 extend layout
 
 block navigation
-    +masthead(class = 'project-header')
+    +masthead(true, projects[projectID] )
     +navigation(true)
 
 block content
-    .project-title
-        h1 #{projName}
-        p #{subtitle}
-
-        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi molestie tristique enim non cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet erat ut quam sagittis viverra non aliquet velit. Vestibulum ut dui et sem malesuada tincidunt. Aenean elementum efficitur ex. Aliquam erat volutpat. Mauris commodo nisi eleifend dui interdum, nec feugiat diam mattis. Vestibulum pulvinar aliquam est eu semper. Sed id nulla non tellus convallis tristique.
-
-        | Consectetur adipiscing elit. Morbi molestie tristique enim non cursus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet erat ut quam sagittis viverra non aliquet velit. Vestibulum ut dui et sem malesuada tincidunt. Aenean elementum efficitur ex. Aliquam erat volutpat. Mauris commodo nisi eleifend dui interdum, nec feugiat diam mattis. Vestibulum pulvinar aliquam est eu semper. Sed id nulla non tellus convallis tristique.
+    .fullscreen-image
+    .project-title(style="color: #{projects[projectID].theme}")
+        h1 #{projects[projectID].title}
+        p #{projects[projectID].subtitle}
+    +imageCollection(projects[projectID])
+    +scrollToTop

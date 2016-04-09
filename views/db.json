@@ -1,4 +1,158 @@
 {
-    "projName":"Trois",
-    "subtitle":"This is the seriously"
+    "projects": [
+        {
+            "id": 1,
+            "title":"Graphics",
+            "subtitle":"A collection of various graphic illustrations.",
+            "theme":"#463857",
+            "images": {
+                "thumb":"trois.png",
+                "collection": [
+                    {
+                        "fileName" : "trois.png",
+                        "description" : "Here is a description for image trois.png"
+                    },
+                    {
+                        "fileName" : "riseAndShine.png",
+                        "description" : "Here is a description for image riseAndShine.png"
+                    },
+                    {
+                        "fileName" : "flyleaf-webs.png",
+                        "description" : "Here is a description for image flyleaf-webs.png"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "title":"Rise & Shine",
+            "subtitle":"An alarm clock app that won't stop until you smile in to the camera.",
+            "theme":"#623E38",
+            "images": {
+                "thumb":"riseAndShine.png",
+                "collection" : [
+                    {
+                        "fileName" : "riseAndShine-hero.png",
+                        "description" : "Designing this app was a ton of fun. It's concept is unque and beneficial to those who have a hard time waking up happy. "
+                    },
+                    {
+                        "fileName" : "riseAndShine-1.png",
+                        "description" : "Easily select which days the alarm will repeat. This screen allows you to easily access app settings as well as your not-so-glamorous morning photos."
+                    },
+                    {
+                        "fileName" : "riseAndShine-2.png",
+                        "description" : "Set your phone to strobe, vibrate, play audio, or all of the above! Sounds were provided by Nico Audy-Rowland, musician for Red Vs Blue."
+                    },
+                    {
+                        "fileName" : "riseAndShine-3.png",
+                        "description" : "We save each smiling mug you used to stop the alarm. A simple pull-down action reveals these embarrassing photos. You can view and edit or opt out of saving each photo."
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "title":"Flyleaf",
+            "subtitle":"A service aimed at distrubting paper copies of short stories from various emerging authors.",
+            "theme":"#405123",
+            "images": {
+                "thumb":"flyleaf-webs.png",
+                "collection": [
+                    {
+                        "fileName" : "flyleaf-webs.png",
+                        "description" : "Here is a description for image flyleaf-webs.png"
+                    },
+                    {
+                        "fileName" : "trois.png",
+                        "description" : "Here is a description for image trois.png"
+                    },
+                    {
+                        "fileName" : "riseAndShine.png",
+                        "description" : "Here is a description for image riseAndShine.png"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "title":"Mu Optics",
+            "subtitle":"Thermal imaging at consumer friendly prices.",
+            "theme":"#580061",
+            "images": {
+                "thumb":"mu.png",
+                "collection": [
+                    {
+                        "fileName" : "mu.png",
+                        "description" : "Here is a description for image flyleaf-webs.png"
+                    },
+                    {
+                        "fileName" : "trois.png",
+                        "description" : "Here is a description for image trois.png"
+                    },
+                    {
+                        "fileName" : "riseAndShine.png",
+                        "description" : "Here is a description for image riseAndShine.png"
+                    },
+                    {
+                        "fileName" : "flyleaf-webs.png",
+                        "description" : "Here is a description for image flyleaf-webs.png"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "title":"Scrybe",
+            "subtitle":"A simple app for translating text to various languages",
+            "theme":"#464646",
+            "images": {
+                "thumb":"scrybe.png",
+                "collection": [
+                    {
+                        "fileName" : "scrybe-hero.png",
+                        "description" : ""
+                    },
+                    {
+                        "fileName" : "scrybe-1.png",
+                        "description" : "A simple concept called for a simple interface. This was my first attempt at flat design inspired by iOS7's newly introduced design principles."
+                    },
+                    {
+                        "fileName" : "scrybe-2.png",
+                        "description" : "Clicking on the top right menu reveals saved translations ready to be played or edited."
+                    },
+                    {
+                        "fileName" : "scrybe-3.png",
+                        "description" : ""
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "title":"Sqipp",
+            "subtitle":"A mobile app designed to allow a quick ordering experience for pickup.",
+            "theme":"#B3291A",
+            "images": {
+                "thumb":"sqipp.png",
+                "collection": [
+                    {
+                        "fileName" : "sqipp.png",
+                        "description" : "Here is a description for image trois.png"
+                    },
+                    {
+                        "fileName" : "trois.png",
+                        "description" : "Here is a description for image trois.png"
+                    },
+                    {
+                        "fileName" : "riseAndShine.png",
+                        "description" : "Here is a description for image riseAndShine.png"
+                    },
+                    {
+                        "fileName" : "flyleaf-webs.png",
+                        "description" : "Here is a description for image flyleaf-webs.png"
+                    }
+                ]
+            }
+        }
+    ]
 }

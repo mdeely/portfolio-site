@@ -3,31 +3,15 @@ extend layout
 block content
   .grid
     .grid-sizer
-    a.grid-item.portfolioLink(href="/trois")
-      .item-details Trois
-      .item-content
-        img(src="/images/trois.png")
-    a.grid-item.portfolioLink(href="/flyleaf")
-      .item-details Flyleaf
-      .item-content
-        img(src="/images/flyleaf-webs.png")
-    a.grid-item.portfolioLink(href="/sqipp")
-      .item-details Sqipp
-      .item-content
-        img(src="/images/sqipp.png")
-    a.grid-item.portfolioLink(href="/rise-and-shine")
-      .item-details Rise &amp; Shine
-      .item-content
-        img(src="/images/riseAndShine.png")
-    a.grid-item.portfolioLink(href="/mu-optics")
-      .item-details Mu Optics
-      .item-content
-        img(src="/images/mu.png")
-    a.grid-item.portfolioLink(href="/scrybe")
-      .item-details Scrybe
-      .item-content
-        img(src="/images/scrybe.png")
+
+     - for project in projects
+      a.grid-item.portfolioLink(href="/#{project.id}")
+        .item-content
+          img(src="/images/#{project.images.thumb}")
+        .item-details #{project.title}
 
 block navigation
   +masthead()
-  +navigation(false)
+  +navigation(false, true)
+
+  //- /#{project.name.replace('&', 'and').replace(/\s+/g, '-').toLowerCase()}

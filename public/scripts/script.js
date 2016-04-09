@@ -2,27 +2,55 @@ $(document).ready(function() {
     init();
 
     function init() {
-      gatherNodes(),
-      initGrid(this.$gridEl);
+      gatherNodes();
+      initGrid(this.$grid);
+      hideElements();
       // linkBehavior(this.$linkNodes);
       menuTrigger(this.$menuTrigger);
-      displayBackButton();
+      fullscreenImages(this.$image, this.$fsImage);
+      scrollToTop(this.$scrollToTop);
     };
 
     function gatherNodes() {
       $body = $('body'),
-      this.$linkNodes   = $('body').find('.portfolioLink, .back'),
+      // this.$linkNodes   = $('body').find('.portfolioLink, .back');
       this.$menuTrigger = $('.menu-trigger');
-      this.$gridEl        = $('.grid');
+      this.$grid        = $('.grid');
+      this.$image       = $('img');
+      this.$fsImage     = $('.fullscreen-image');
+      this.$scrollToTop = $(".scrollToTop");
     }
 
-    function displayBackButton() {
-      var $back = $(".nav-item.back");
+    function hideElements() {
+      this.$fsImage.hide();
+    }
 
-      if (window.location.pathname !== "/") {
-        $back.show();
-      }
+    function fullscreenImages(images, fsImage) {
+      images.on('click', function(evt) {
+        handleImageClick($(this), fsImage);
+      });
+
+      fsImage.on('click', function(evt) {
+        handleFsImageClick(fsImage);
+      });
     };
+
+    function handleFsImageClick(fsImage) {
+      fsImage.empty().fadeOut(300);
+      toggleNoScroll();
+    }
+
+    function handleImageClick(image, fsImage) {
+        var src = image.attr('src');
+
+        fsImage.append('<img src='+src+'>');
+        fsImage.fadeIn(200);
+        toggleNoScroll();
+    }
+
+    function toggleNoScroll() {
+      $('body').toggleClass('no-scroll');
+    }
 
     function linkBehavior(links) {
       links.on('click', function(evt) {
@@ -47,8 +75,24 @@ $(document).ready(function() {
       });
     };
 
+    function scrollToTop(el) {
+      $(document).scroll(function () {
+          var y = $(this).scrollTop();
+          if (y > 800) {
+              el.fadeIn(200);
+          } else {
+              el.fadeOut(200);
+          }
+      });
+
+      el.on('click', function(evt) {
+        evt.preventDefault;
+        $('html, body').animate({scrollTop:0},1000);
+      });
+    };
+
     function initGrid(selector) {
-      $gridEl.hide();
+      $grid.hide();
 
       var $gridInit = $('.grid');
 
