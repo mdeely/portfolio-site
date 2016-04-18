@@ -9,7 +9,14 @@ $(document).ready(function() {
       menuTrigger(this.$menuTrigger);
       fullscreenImages(this.$image, this.$fsImage);
       scrollToTop(this.$scrollToTop);
+      // nightTime();
     };
+
+    function nightTime() {
+      $('p').on('click', function () {
+        $('body').toggleClass('night-time');
+      });
+    }
 
     function gatherNodes() {
       $body = $('body'),
@@ -42,10 +49,15 @@ $(document).ready(function() {
 
     function handleImageClick(image, fsImage) {
         var src = image.attr('src');
+        var desc = image.next().contents().text();
 
-        fsImage.append('<img src='+src+'>');
+        // nextImg = image.parent().next(".collection").children('img');
+        // prevImg = image.parent().prev(".collection").children('img');
+
+        fsImage.append('<img src='+src+'><p>'+desc+'</p>');
         fsImage.fadeIn(200);
         toggleNoScroll();
+        console.log(desc)
     }
 
     function toggleNoScroll() {
@@ -78,7 +90,7 @@ $(document).ready(function() {
     function scrollToTop(el) {
       $(document).scroll(function () {
           var y = $(this).scrollTop();
-          if (y > 800) {
+          if (y > 960) {
               el.fadeIn(200);
           } else {
               el.fadeOut(200);
@@ -92,7 +104,7 @@ $(document).ready(function() {
     };
 
     function initGrid(selector) {
-      $grid.hide();
+      $('.grid').hide();
 
       var $gridInit = $('.grid');
 

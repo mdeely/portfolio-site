@@ -60,6 +60,7 @@ $black  = #333;
 $red = #FF6161;
 
 $backgroundColor     = #F9F9F9;
+$backgroundDark      = #232323;
 $triggerSpacing      = 42px;
 $triggerSpacingSixth = ($triggerSpacing/6)
 $triggerLineHeight   = 3px;
@@ -88,6 +89,32 @@ body {
         overflow: hidden;
         height:100%;
     }
+
+    &.night-time {
+        background-color: $backgroundDark;
+        transition: all .3s ease-in-out;
+
+        .project-title {
+            p {
+                color: #aaa;
+            }
+        }
+
+        .collection-container .collection p {
+            color: #999;
+        }
+
+        .nav-item {
+            background-color: $backgroundDark;
+        }
+
+        .masthead.project-header {
+            &:before,
+            &:after {
+                border-color: rgba(black 0) rgba(black .2);
+            }
+        }
+    }
 }
 
 // Clearfix
@@ -115,6 +142,8 @@ p  {
     transition: top .5s ease-in-out, right .5s ease-in-out;
     transition-delay: .6s;
     navItemStyles();
+    background-color: $backgroundColor;
+    box-shadow: none;
 
     &.back,
     .menu-trigger {
@@ -188,7 +217,6 @@ p  {
 
     &:active {
         transform: translate(0,1px);
-        box-shadow: 0 0 1px rgba(0,0,0,.15);
     }
 }
 
@@ -200,17 +228,24 @@ p  {
     right: 0;
     background-attachment: scroll;
     background-size: cover;
-    z-index: 9999;
+    z-index: 10000;
     overflow: scroll;
     text-align: center;
     background-color: #333;
     padding: 20px;
     cursor: -webkit-zoom-out;
+    color: #888;
 
     img {
         box-shadow: 0 2px 4px rgba(black, .5);
         border-radius: 3px;
         background-color: $backgroundColor;
+    }
+
+    p {
+        font-weight: 200;
+        margin: 32px auto;
+        max-width: 380px;
     }
 }
 
@@ -308,7 +343,7 @@ nav.masthead {
     color: transparent;
 
     ul {
-        margin: 0 auto;
+        margin: 15px auto 0 auto;
         text-align: center;
 
         li {
@@ -324,15 +359,20 @@ nav.masthead {
             border-radius: 5em;
             -webkit-animation: hover 9s infinite;
             animation: hover 40s ease-in-out infinite;
+            box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
 
             &:nth-child(2n) { animation: hover 30s ease-in-out infinite reverse; }
             &:nth-child(3n) { animation: hover 20s ease-in-out infinite alternate; }
 
             &.name {
                 font-size: 2em;
-                margin: 6px 7%;
+                margin: 6px 4%;
                 width: 100px;
                 height: 100px;
+
+                a {
+                    color: transparent;
+                }
             }
         }
     }
@@ -340,8 +380,8 @@ nav.masthead {
 
 .container {
     padding: 14px;
-    background-color: $backgroundColor;
     position: relative;
+    background-color: $backgroundColor;
 
     .collection-container {
 
@@ -349,6 +389,7 @@ nav.masthead {
             text-align: center;
             margin-bottom: 12%;
             position: relative;
+            z-index: 10;
 
             &:first-child {
                 img {
@@ -360,11 +401,11 @@ nav.masthead {
                 p {
                     position: relative;
                     width: 100%;
-                    margin-top: 12px;
+                    margin: 6px auto 80px auto;
 
                     span {
                         display: block;
-                        max-width: 400px;
+                        max-width: 440px;
                         padding: 0 30px;
                         font-weight: 300;
                         font-style: italic;
@@ -379,7 +420,8 @@ nav.masthead {
                 width: 33%;
                 min-width: 300px;
                 cursor: -webkit-zoom-in;
-                box-shadow: 0 1px 2px rgba(0,0,0,.4);
+                border-radius: 2px;
+                box-shadow: -2px 12px 36px rgba(0,0,0,0.3), -43px 9px 72px rgba(0,0,0,0.25);
             }
 
             p {
@@ -393,7 +435,7 @@ nav.masthead {
 
                 span {
                     display: inline-block;
-                    max-width: 300px;
+                    max-width: 480px;
                     padding: 0 30px;
                     font-weight: 300;
                     font-style: italic;
@@ -471,6 +513,7 @@ nav.masthead {
         text-transform: uppercase;
         letter-spacing: 8px;
         font-weight: bold;
+        word-break: break-word;
     }
 
     p {
@@ -516,7 +559,7 @@ nav.masthead {
     // }
 
     .item-details {
-        z-index: 1;
+        z-index: 0;
         margin: 15px;
         text-align: center;
         color: #555;
@@ -528,6 +571,8 @@ nav.masthead {
         overflow-y: scroll;
         overflow-x: hidden;
         margin-top: 15px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .item-content {
@@ -536,6 +581,8 @@ nav.masthead {
         border-radius: 3px;
         box-shadow: 0 1px 2px rgba(0,0,0,.55);
         overflow: hidden;
+        box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
+        z-index: 1;
 
         img {
             height: 100%;
@@ -556,8 +603,6 @@ nav.masthead {
         }
 
         .item-content {
-            z-index: 1;
-
             img {
                 transform: scale(1.2);
                 transition: opacity .2s ease-in-out, transform 8s ease-out;
@@ -588,10 +633,22 @@ nav.masthead {
     display: none;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    z-index: 9999;
 }
 
 
 @media screen and (min-width: 480px) {
+
+    nav.masthead {
+        ul {
+            li{
+                &.name {
+                    margin: 6px 7%;
+                }
+            }
+        }
+    }
+
     .grid-sizer,
     .grid-item {
         width: 50%;
@@ -611,7 +668,7 @@ nav.masthead {
 
     .project-title {
         margin-top: 8%;
-        margin-bottom: 10%;
+        margin-bottom: 8%;
     }
 
 
@@ -628,8 +685,8 @@ nav.masthead {
             position: absolute;
             left: 0;
             right: 0;
-            bottom: 25px;
-            padding: 15px 15px 0 15px;
+            top: 18px;
+            padding: 15px 30px 0 30px
             opacity: 0;
         }
     }
@@ -670,4 +727,15 @@ nav.masthead {
     .grid-item {
         width: 20%;
     }
+
+    .grid-item {
+        padding: 65px;
+    }
 }
+
+// for sunkin-in version of images on index for when user chooses coding or design
+// 1px 1px 3px rgba(47, 47, 47, 0.54), -2px 3px 9px rgba(0, 0, 0, 0.22)
+
+// to make images rotate cool-like
+// box-shadow: -18px 12px 36px rgba(0,0,0,0.4), -38px 16px 72px rgba(0, 0, 0, 0.25);
+// transform: rotate3d(42, 35, -30, 15deg);

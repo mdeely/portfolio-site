@@ -1,13 +1,14 @@
 extend layout
 
 block navigation
-    +masthead(true, projects[projectID] )
+    +masthead(true, projects[projectName] )
     +navigation(true)
 
 block content
     .fullscreen-image
-    .project-title(style="color: #{projects[projectID].theme}")
-        h1 #{projects[projectID].title}
-        p #{projects[projectID].subtitle}
-    +imageCollection(projects[projectID])
-    +scrollToTop
+        .previous
+        .next
+    .project-title(style="color: #{projects[projectName].theme}")
+        h1 #{projects[projectName].title}
+        p #{projects[projectName].subtitle}
+    +imageCollection(projects[projectName])

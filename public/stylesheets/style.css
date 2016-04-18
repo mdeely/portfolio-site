@@ -119,6 +119,27 @@ body.no-scroll {
   overflow: hidden;
   height: 100%;
 }
+body.night-time {
+  background-color: #232323;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+body.night-time .project-title p {
+  color: #aaa;
+}
+body.night-time .collection-container .collection p {
+  color: #999;
+}
+body.night-time .nav-item {
+  background-color: #232323;
+}
+body.night-time .masthead.project-header:before,
+body.night-time .masthead.project-header:after {
+  border-color: rgba(0,0,0,0) rgba(0,0,0,0.2);
+}
 .cf {
   zoom: 1;
 }
@@ -159,6 +180,9 @@ p {
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   -webkit-border-radius: 5px;
   border-radius: 5px;
+  background-color: #f9f9f9;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .nav-item.back,
 .nav-item .menu-trigger {
@@ -253,8 +277,6 @@ p {
   -o-transform: translate(0, 1px);
   -ms-transform: translate(0, 1px);
   transform: translate(0, 1px);
-  -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.15);
-  box-shadow: 0 0 1px rgba(0,0,0,0.15);
 }
 .fullscreen-image {
   position: fixed;
@@ -266,12 +288,13 @@ p {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  z-index: 9999;
+  z-index: 10000;
   overflow: scroll;
   text-align: center;
   background-color: #333;
   padding: 20px;
   cursor: -webkit-zoom-out;
+  color: #888;
 }
 .fullscreen-image img {
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
@@ -279,6 +302,11 @@ p {
   -webkit-border-radius: 3px;
   border-radius: 3px;
   background-color: #f9f9f9;
+}
+.fullscreen-image p {
+  font-weight: 200;
+  margin: 32px auto;
+  max-width: 380px;
 }
 .menu .menu-trigger.triggered {
   -webkit-box-shadow: none;
@@ -439,7 +467,7 @@ nav.masthead {
   color: transparent;
 }
 nav.masthead ul {
-  margin: 0 auto;
+  margin: 15px auto 0 auto;
   text-align: center;
 }
 nav.masthead ul li {
@@ -461,6 +489,8 @@ nav.masthead ul li {
   -o-animation: hover 40s ease-in-out infinite;
   -ms-animation: hover 40s ease-in-out infinite;
   animation: hover 40s ease-in-out infinite;
+  -webkit-box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
+  box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
 }
 nav.masthead ul li:nth-child(2n) {
   -webkit-animation: hover 30s ease-in-out infinite reverse;
@@ -478,19 +508,23 @@ nav.masthead ul li:nth-child(3n) {
 }
 nav.masthead ul li.name {
   font-size: 2em;
-  margin: 6px 7%;
+  margin: 6px 4%;
   width: 100px;
   height: 100px;
 }
+nav.masthead ul li.name a {
+  color: transparent;
+}
 .container {
   padding: 14px;
-  background-color: #f9f9f9;
   position: relative;
+  background-color: #f9f9f9;
 }
 .container .collection-container .collection {
   text-align: center;
   margin-bottom: 12%;
   position: relative;
+  z-index: 10;
 }
 .container .collection-container .collection:first-child img {
   -webkit-box-shadow: none;
@@ -501,11 +535,11 @@ nav.masthead ul li.name {
 .container .collection-container .collection:first-child p {
   position: relative;
   width: 100%;
-  margin-top: 12px;
+  margin: 6px auto 80px auto;
 }
 .container .collection-container .collection:first-child p span {
   display: block;
-  max-width: 400px;
+  max-width: 440px;
   padding: 0 30px;
   font-weight: 300;
   font-style: italic;
@@ -517,8 +551,10 @@ nav.masthead ul li.name {
   width: 33%;
   min-width: 300px;
   cursor: -webkit-zoom-in;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: -2px 12px 36px rgba(0,0,0,0.3), -43px 9px 72px rgba(0,0,0,0.25);
+  box-shadow: -2px 12px 36px rgba(0,0,0,0.3), -43px 9px 72px rgba(0,0,0,0.25);
 }
 .container .collection-container .collection p {
   text-align: center;
@@ -531,7 +567,7 @@ nav.masthead ul li.name {
 }
 .container .collection-container .collection p span {
   display: inline-block;
-  max-width: 300px;
+  max-width: 480px;
   padding: 0 30px;
   font-weight: 300;
   font-style: italic;
@@ -600,6 +636,7 @@ nav.masthead ul li.name {
   text-transform: uppercase;
   letter-spacing: 8px;
   font-weight: bold;
+  word-break: break-word;
 }
 .project-title p {
   color: #888;
@@ -616,7 +653,7 @@ nav.masthead ul li.name {
   text-decoration: none;
 }
 .grid-item .item-details {
-  z-index: 1;
+  z-index: 0;
   margin: 15px;
   text-align: center;
   color: #555;
@@ -636,6 +673,9 @@ nav.masthead ul li.name {
   overflow-y: scroll;
   overflow-x: hidden;
   margin-top: 15px;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .grid-item .item-content {
   position: relative;
@@ -645,6 +685,9 @@ nav.masthead ul li.name {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.55);
   box-shadow: 0 1px 2px rgba(0,0,0,0.55);
   overflow: hidden;
+  -webkit-box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
+  box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 .grid-item .item-content img {
   height: 100%;
@@ -673,10 +716,6 @@ nav.masthead ul li.name {
   -o-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-}
-.grid-item:hover .item-content,
-.grid-item:focus .item-content {
-  z-index: 1;
 }
 .grid-item:hover .item-content img,
 .grid-item:focus .item-content img {
@@ -717,8 +756,12 @@ nav.masthead ul li.name {
   display: none;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+  z-index: 9999;
 }
 @media screen and (min-width: 480px) {
+  nav.masthead ul li.name {
+    margin: 6px 7%;
+  }
   .grid-sizer,
   .grid-item {
     width: 50%;
@@ -733,7 +776,7 @@ nav.masthead ul li.name {
   }
   .project-title {
     margin-top: 8%;
-    margin-bottom: 10%;
+    margin-bottom: 8%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -745,8 +788,8 @@ nav.masthead ul li.name {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 25px;
-    padding: 15px 15px 0 15px;
+    top: 18px;
+    padding: 15px 30px 0 30px;
     opacity: 0;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
@@ -777,6 +820,9 @@ nav.masthead ul li.name {
   .grid-sizer,
   .grid-item {
     width: 20%;
+  }
+  .grid-item {
+    padding: 65px;
   }
 }
 @-moz-keyframes hover {

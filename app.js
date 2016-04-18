@@ -33,10 +33,10 @@ app.get('/about', function (req, res) {
   res.render( 'about' );
 })
 
-app.get('/:id', function (req, res) {
-  var id = (req.params.id - 1);
+app.get('/:projectName', function (req, res) {
+  var projectName = req.params.projectName;
 
-  res.locals.projectID = id;
+  res.locals.projectName = projectName;
 
   var obj = require('./views/db.json');
   res.render( 'project', obj );
