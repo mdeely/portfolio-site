@@ -1,4 +1,5 @@
 {
+  "start": "node app.js",
   "name": "mdeely-portfolio",
   "version": "0.0.1",
   "author": "Marc Deely",
