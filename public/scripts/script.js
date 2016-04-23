@@ -3,19 +3,17 @@ $(document).ready(function() {
 
     function init() {
       gatherNodes();
-      initGrid(this.$grid);
-      hideElements();
-      // linkBehavior(this.$linkNodes);
+      projectListLoadBehavior();
       menuTrigger(this.$menuTrigger);
       fullscreenImages(this.$image, this.$fsImage);
       scrollToTop(this.$scrollToTop);
       lazyLoad();
-      // nightTime();
     };
 
-    function nightTime() {
-      $('p').on('click', function () {
-        $('body').toggleClass('night-time');
+    function projectListLoadBehavior() {
+      $('.container').addClass('fade');
+      $('.portfolioLink').imagesLoaded( function() {
+        $('.container').removeClass('fade');
       });
     }
 
@@ -28,16 +26,10 @@ $(document).ready(function() {
 
     function gatherNodes() {
       $body = $('body'),
-      // this.$linkNodes   = $('body').find('.portfolioLink, .back');
       this.$menuTrigger = $('.menu-trigger');
-      this.$grid        = $('.grid');
       this.$image       = $('img');
       this.$fsImage     = $('.fullscreen-image');
       this.$scrollToTop = $(".scrollToTop");
-    }
-
-    function hideElements() {
-      this.$fsImage.hide();
     }
 
     function fullscreenImages(images, fsImage) {
@@ -74,21 +66,6 @@ $(document).ready(function() {
       $('body').toggleClass('no-scroll');
     }
 
-    function linkBehavior(links) {
-      links.on('click', function(evt) {
-          evt.preventDefault();
-
-          links.not(this).fadeOut(175);
-          $body.fadeOut(500);
-
-        var Link = $(this).attr("href");
-
-        setTimeout(function() {
-            window.location = Link;
-        },515);
-      });
-    };
-
     function menuTrigger(triggers) {
       triggers.on('click', function(evt) {
         toggleMenuClasses(triggers);
@@ -120,26 +97,5 @@ $(document).ready(function() {
         evt.preventDefault;
         $('html, body').animate({scrollTop:0},1000);
       });
-    };
-
-    function initGrid(selector) {
-      $('.grid').hide();
-
-      var $gridInit = $('.grid');
-
-      $gridInit.imagesLoaded().always( function( instance ) {
-
-          var $grid = $gridInit.imagesLoaded( function() {
-            // init Masonry after all images have loaded
-              $grid.masonry({
-                // options
-                itemSelector: '.grid-item',
-                columnWidth: '.grid-sizer',
-                percentPosition: true
-              });
-          });
-      });
-
-      $('.grid').fadeIn(1000);
     };
 });

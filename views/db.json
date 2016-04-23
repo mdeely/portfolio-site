@@ -6,28 +6,34 @@
             "subtitle":"A collection of various graphic illustrations.",
             "theme":"#463857",
             "name":"graphics",
+            "type":["design"],
             "images": {
                 "thumb":"trois.png",
                 "collection": [
                     {
                         "fileName" : "trois.png",
-                        "description" : "A birthday present to a friend."
+                        "description" : "A birthday present to a friend.",
+                        "end" : true
                     },
                     {
                         "fileName" : "PeppermintpimpsMistlhoes.png",
-                        "description" : "An invitation to a Christmas party my roommates and I never had."
+                        "description" : "An invitation to a Christmas party my roommates and I never had.",
+                        "end" : true
                     },
                     {
-                        "fileName" : "phoenix_drawing.png",
-                        "description" : "An album cover I made for my brother."
+                        "fileName" : "phoenix-drawing.png",
+                        "description" : "An album cover I made for my brother.",
+                        "end" : true
                     },
                     {
                         "fileName" : "gameboy.png",
-                        "description" : "GameBoy vector"
+                        "description" : "GameBoy vector",
+                        "end" : true
                     },
                     {
                         "fileName" : "infinity-running-logo.png",
-                        "description" : "Logo and font made for a running service."
+                        "description" : "Logo and font made for a running service.",
+                        "end" : true
                     },
                     {
                         "fileName" : "bitter-haze-logo.png",
@@ -42,6 +48,7 @@
             "subtitle":"A site that provides verfied user reviews of moving companies.",
             "theme":"#99b942",
             "name":"moving-company-reviews",
+            "type":["design", "code"],
             "images": {
                 "thumb" : "mcr-thumb.png",
                 "collection": [
@@ -85,6 +92,7 @@
             "subtitle":"A service that gives agents and brokers an easy way to manage their leads, listings, and open houses.",
             "theme":"#2f9bdd",
             "name":"open-home-pro",
+            "type":["design", "code"],
             "images": {
                 "thumb":"openHomePro-thumb.png",
                 "collection": [
@@ -132,6 +140,7 @@
             "subtitle":"An alarm clock app that won't stop until you smile in to the camera.",
             "theme":"#F4964E",
             "name":"rise-and-shine",
+            "type":["design"],
             "images": {
                 "thumb":"riseAndShine.png",
                 "collection" : [
@@ -173,6 +182,7 @@
             "subtitle":"A service aimed at distributing paper copies of short stories from emerging authors.",
             "theme":"#111111",
             "name":"flyleaf",
+            "type":["design", "code"],
             "images": {
                 "thumb":"flyleaf-thumb.png",
                 "collection": [
@@ -215,6 +225,7 @@
             "subtitle":"Thermal imaging at consumer friendly prices.",
             "theme":"#580061",
             "name":"mu-optics",
+            "type":["design", "code"],
             "images": {
                 "thumb":"mu-thumb.png",
                 "collection": [
@@ -274,6 +285,7 @@
             "subtitle":"A simple app for translating text to various languages",
             "theme":"#464646",
             "name":"scrybe",
+            "type":["design"],
             "images": {
                 "thumb":"scrybe.png",
                 "collection": [
@@ -303,6 +315,7 @@
             "subtitle":"A mobile app designed to allow a quick ordering experience for pickup.",
             "theme":"#B3291A",
             "name":"sqipp",
+            "type":["design", "code"],
             "images": {
                 "thumb":"sqipp-thumb.png",
                 "collection": [

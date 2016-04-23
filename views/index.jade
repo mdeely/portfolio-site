@@ -2,17 +2,10 @@ extend layout
 
 block content
   +backgroundMenuFade()
-  .container
-    .grid
-      .grid-sizer
-      - for project in projects
-        a.grid-item.portfolioLink(href="/#{project.name}" onclick="ga('send', 'event', 'Project', 'click', '#{project.name}');")
-          .item-content
-            img(src="https://s3.amazonaws.com/mdeely-portfolio-assets/images/#{project.name}/#{project.images.thumb}")
-          .item-details #{project.title}
+  .container.fade
+    .project-list
+      +listProjects()
 
 block navigation
   +masthead()
   +navigation(false, true)
-
-  //- /#{project.name.replace('&', 'and').replace(/\s+/g, '-').toLowerCase()}

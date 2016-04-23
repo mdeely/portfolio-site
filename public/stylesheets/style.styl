@@ -70,6 +70,8 @@ $menuWidth = 320px;
 
 $boxShadow = 0 1px 2px rgba(0,0,0,.15);
 
+zIndexMax = 999;
+
 html {
     font-family: 'Lato';
     background-color: $backgroundColor;
@@ -87,33 +89,7 @@ body {
 
     &.no-scroll {
         overflow: hidden;
-        height:100%;
-    }
-
-    &.night-time {
-        background-color: $backgroundDark;
-        transition: all .3s ease-in-out;
-
-        .project-title {
-            p {
-                color: #aaa;
-            }
-        }
-
-        .collection-container .collection p {
-            color: #999;
-        }
-
-        .nav-item {
-            background-color: $backgroundDark;
-        }
-
-        .masthead.project-header {
-            &:before,
-            &:after {
-                border-color: rgba(black 0) rgba(black .2);
-            }
-        }
+        height: 100%;
     }
 }
 
@@ -138,7 +114,7 @@ p  {
     position: fixed;
     top: 28px;
     right: 14px;
-    z-index: 999;
+    z-index: zIndexMax;
     transition: top .5s ease-in-out, right .5s ease-in-out;
     transition-delay: .6s;
     navItemStyles();
@@ -156,6 +132,7 @@ p  {
         left: 14px;
         width: $triggerSpacing;
         height: $triggerSpacing;
+        z-index: zIndexMax - 2;
 
         span {
             background-color: transparent;
@@ -177,7 +154,7 @@ p  {
 
 
     .menu-trigger {
-        z-index: 1000;
+        z-index: zIndexMax + 1;
         position: relative;
         transition: box-shadow .15s ease-in-out;
         navItemStyles();
@@ -221,6 +198,7 @@ p  {
 }
 
 .fullscreen-image {
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -228,7 +206,7 @@ p  {
     right: 0;
     background-attachment: scroll;
     background-size: cover;
-    z-index: 10000;
+    z-index: zIndexMax + 2;
     overflow: scroll;
     text-align: center;
     background-color: #333;
@@ -245,7 +223,7 @@ p  {
     p {
         font-weight: 200;
         margin: 32px auto;
-        max-width: 380px;
+        max-width: 550px;
     }
 }
 
@@ -341,6 +319,7 @@ ul.menu-container {
 nav.masthead {
     padding: 24px;
     color: transparent;
+    background-color: $backgroundColor;
 
     ul {
         margin: 15px auto 0 auto;
@@ -385,15 +364,14 @@ nav.masthead {
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 99;
     opacity: 0;
     transition: opacity .4s, z-index .1s linear .4s;
-    z-index: -999;
+    z-index: (-zIndexMax);
 
     &.active {
         opacity: .75;
         transition: opacity .4s;
-        z-index: 99;
+        z-index: zIndexMax - 1;
     }
 }
 
@@ -404,8 +382,11 @@ nav.masthead {
     transition: opacity .3s;
 
     &.fade {
-        opacity: .5;
         pointer-events: none;
+
+        .portfolioLink {
+            opacity: 0;
+        }
     }
 
     .collection-container {
@@ -414,7 +395,7 @@ nav.masthead {
             text-align: center;
             margin-bottom: 12%;
             position: relative;
-            z-index: 10;
+            z-index: zIndexMax - 10;
 
             &.hero {
                 img {
@@ -497,7 +478,7 @@ nav.masthead {
           border-style: solid;
           border-width: 10px 100vw 0px 0px;
           margin-top: 0px;
-          z-index: 9;
+          z-index: zIndexMax - 20;
         }
 
         &:after {
@@ -556,14 +537,29 @@ nav.masthead {
     }
 }
 
-.grid-item,
-.grid-sizer {
+.portfolioLink {
     width: 100%;
-}
-
-.grid-item {
     padding: 45px;
     text-decoration: none;
+    max-width: 500px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    opacity: 1;
+    transition: opacity .4s ease-in-out;
+
+    &:nth-child(2n) {
+        transition-delay: .7s;
+    }
+    &:nth-child(3n) {
+        transition-delay: .2s;
+    }
+    &:nth-child(4n) {
+        transition-delay: .35s;
+    }
+    &:nth-child(5n) {
+        transition-delay: .6s;
+    }
 
     // &:nth-child(2n) {
     //     transform: rotateZ(-1.2deg);
@@ -664,7 +660,7 @@ nav.masthead {
     display: none;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    z-index: 9999;
+    z-index: zIndexMax - 3;
 }
 
 
@@ -672,16 +668,13 @@ nav.masthead {
 
     nav.masthead {
         ul {
-            li{
-                &.name {
-                    margin: 6px 7%;
-                }
+            li.name {
+                margin: 6px 7%;
             }
         }
     }
 
-    .grid-sizer,
-    .grid-item {
+    .portfolioLink {
         width: 50%;
     }
 
@@ -706,12 +699,9 @@ nav.masthead {
 }
 
 @media screen and (min-width: 768px) {
-    .grid-sizer,
-    .grid-item {
+    .portfolioLink {
         width: 33.333%;
-    }
 
-    .grid-item {
         .item-details {
             position: absolute;
             left: 0;
@@ -747,20 +737,21 @@ nav.masthead {
 }
 
 @media screen and (min-width: 1024px) {
-    .grid-sizer,
-    .grid-item {
+    .portfolioLink {
         width: 25%;
     }
 }
 
 @media screen and (min-width: 1400px) {
-    .grid-sizer,
-    .grid-item {
+    .portfolioLink {
         width: 20%;
-    }
-
-    .grid-item {
         padding: 65px;
+    }
+}
+
+.no-js {
+    .container .portfolioLink {
+        display: initial;
     }
 }
 
