@@ -378,10 +378,35 @@ nav.masthead {
     }
 }
 
+.menu-fader {
+    position: fixed;
+    background-color: $blue;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity .4s, z-index .1s linear .4s;
+    z-index: -999;
+
+    &.active {
+        opacity: .75;
+        transition: opacity .4s;
+        z-index: 99;
+    }
+}
+
 .container {
     padding: 14px;
     position: relative;
     background-color: $backgroundColor;
+    transition: opacity .3s;
+
+    &.fade {
+        opacity: .5;
+        pointer-events: none;
+    }
 
     .collection-container {
 
@@ -391,11 +416,12 @@ nav.masthead {
             position: relative;
             z-index: 10;
 
-            &:first-child {
+            &.hero {
                 img {
                     box-shadow: none;
                     max-width: 550px;
                     width: 100%;
+                    cursor: auto;
                 }
 
                 p {
@@ -413,6 +439,12 @@ nav.masthead {
                         text-align: center;
                     }
                 }
+            }
+
+            &.end {
+                margin-bottom: 8%;
+                padding-bottom: 8%;
+                border-bottom: 1px dashed #B7B7B7;
             }
 
             img {
@@ -586,7 +618,6 @@ nav.masthead {
 
         img {
             height: 100%;
-            min-height: 100px;
             width: 100%;
             vertical-align: top;
             transition: all .1s ease-in-out;

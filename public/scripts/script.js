@@ -9,12 +9,20 @@ $(document).ready(function() {
       menuTrigger(this.$menuTrigger);
       fullscreenImages(this.$image, this.$fsImage);
       scrollToTop(this.$scrollToTop);
+      lazyLoad();
       // nightTime();
     };
 
     function nightTime() {
       $('p').on('click', function () {
         $('body').toggleClass('night-time');
+      });
+    }
+
+    function lazyLoad() {
+      $("img.lazy").lazyload({
+        threshold : 350,
+        effect : 'fadeIn'
       });
     }
 
@@ -48,16 +56,18 @@ $(document).ready(function() {
     }
 
     function handleImageClick(image, fsImage) {
-        var src = image.attr('src');
-        var desc = image.next().contents().text();
+      if (image.parent().hasClass('hero'))
+        return
 
-        // nextImg = image.parent().next(".collection").children('img');
-        // prevImg = image.parent().prev(".collection").children('img');
+      var src = image.attr('src');
+      var desc = image.next().contents().text();
 
-        fsImage.append('<img src='+src+'><p>'+desc+'</p>');
-        fsImage.fadeIn(200);
-        toggleNoScroll();
-        console.log(desc)
+      // nextImg = image.parent().next(".collection").children('img');
+      // prevImg = image.parent().prev(".collection").children('img');
+
+      fsImage.append('<img src='+src+'><p>'+desc+'</p>');
+      fsImage.fadeIn(200);
+      toggleNoScroll();
     }
 
     function toggleNoScroll() {
@@ -81,11 +91,20 @@ $(document).ready(function() {
 
     function menuTrigger(triggers) {
       triggers.on('click', function(evt) {
-        triggers.toggleClass('triggered');
-        $('.menu-container').toggleClass('open');
-        $(".container, .masthead, .project-header").toggleClass('fade');
+        toggleMenuClasses(triggers);
       });
+
+      $(".menu-fader").on('click', function(evt) {
+        toggleMenuClasses(triggers);
+      })
     };
+
+    function toggleMenuClasses(triggers) {
+      triggers.toggleClass('triggered');
+      $('.menu-container').toggleClass('open');
+      $(".menu-fader").toggleClass('active');
+      toggleNoScroll();
+    }
 
     function scrollToTop(el) {
       $(document).scroll(function () {

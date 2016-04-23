@@ -11,7 +11,117 @@
                 "collection": [
                     {
                         "fileName" : "trois.png",
-                        "description" : "Here is a description for image trois.png"
+                        "description" : "A birthday present to a friend."
+                    },
+                    {
+                        "fileName" : "PeppermintpimpsMistlhoes.png",
+                        "description" : "An invitation to a Christmas party my roommates and I never had."
+                    },
+                    {
+                        "fileName" : "phoenix_drawing.png",
+                        "description" : "An album cover I made for my brother."
+                    },
+                    {
+                        "fileName" : "gameboy.png",
+                        "description" : "GameBoy vector"
+                    },
+                    {
+                        "fileName" : "infinity-running-logo.png",
+                        "description" : "Logo and font made for a running service."
+                    },
+                    {
+                        "fileName" : "bitter-haze-logo.png",
+                        "description" : "Logo made for the Tokyo-based band 'Bitter Haze'"
+                    }
+                ]
+            }
+        },
+        "moving-company-reviews": {
+            "id" : 6,
+            "title":"Moving Company Reviews",
+            "subtitle":"A site that provides verfied user reviews of moving companies.",
+            "theme":"#99b942",
+            "name":"moving-company-reviews",
+            "images": {
+                "thumb" : "mcr-thumb.png",
+                "collection": [
+                    {
+                        "fileName" : "mcr-hero.png",
+                        "description" : "",
+                        "hero" : true
+                    },
+                    {
+                        "fileName" : "mcr-search-results-oldVsNew.png",
+                        "description" : "My first two notable projects were redesigns of our navigation bar and search results page, the latter of which was our most visited page. The point of the resdesign was to make each section cleaner and responsive so the site would look great at any screen width. Once the design phase was done, I jumped into our Ruby on Rails application, ripped out the old HTML and CSS and completely recoded each piece. <br><br>Top: Old design. Bottom: New design."
+                    },
+                    {
+                        "fileName" : "mcr-search-results-oldVsNew-mobile.png",
+                        "description" : "Mobile version of the old vs new navigation bar and search results page. The old version was hardly mobile-friendly and overly cluttered with information that was not neccesary for the user to immediatley see. With the redesign, some information was eliminated to accommodate a more aestheitcally pleasing search result card.<br><br>Left: Old design. Right: New design.",
+                        "end": true
+                    },
+                    {
+                        "fileName" : "mcr-email-screenshot.png",
+                        "description" : "When I joined the team, our emails were a little clunky. We decided that better looking emails could help legitimize our company in the eyes of customers. After a lengthy design process, we finally had nicer, cleaner looking emails that were more in line with our brand. Next, I had to code the email as a resuable email template. Honestly, coding email HTML is one of the most frusterating things due to the fact that it's like coding HTML 30 years ago."
+                    },
+                    {
+                        "fileName" : "mcr-emails.png",
+                        "description" : "Here is a display of all the email header images I illustrated.",
+                        "end": true
+                    },
+                    {
+                        "fileName" : "mcr-style-guide.png",
+                        "description" : "At MovingCompanyReviews, I was both the front-end developer and the graphic designer. Those two diciplines overlap each other frequently. I noticed that our styling in the code was inconsitent with our style guide...which was nonexistent! A few weeks later, I designed and coded a new branding guide from scratch. Unfrotunatley, we did not have time to implement it before the company was sold and priorities shifted. Despite that let down, it was a great learning experience for me."
+                    },
+                    {
+                        "fileName" : "mcr-homepage-oldVsNew.png",
+                        "description" : "My very last project was to A/B test a new homepage using the newly created style guide. The new design showed a higher conversion rate. The lesson here? Don't underestimate the power of a well desgined website!"
+                    }
+                ]
+            }
+        },
+        "open-home-pro": {
+            "id": 5,
+            "title":"Open Home Pro®",
+            "subtitle":"A service that gives agents and brokers an easy way to manage their leads, listings, and open houses.",
+            "theme":"#2f9bdd",
+            "name":"open-home-pro",
+            "images": {
+                "thumb":"openHomePro-thumb.png",
+                "collection": [
+                    {
+                        "fileName" : "openHomePro-hero.png",
+                        "description" : "",
+                        "hero" : true
+                    },
+                    {
+                        "fileName" : "openHomePro-style-guide.png",
+                        "description" : "My first project with the Open Home Pro team was to create a unified design guideline that designers and developers could use- AKA a style guide. I collaborated with the graphic designer to consolidate and create design elements and create a functional guide using HTML, CSS, and JavaScript. This was beneficial for designers so they could preview their designs in a functional environment which helped reduce back-and-forth between development and design. Developers could inspect the code to retreive HTML structure or CSS styling to apply to the site an no longer had to guess hex codes or font sizes. When completed, I then plugged in the style guide to the site; upgrading and consolidating HTML and CSS to make our site faster and more efficient.",
+                        "end" : true
+                    },
+                    {
+                        "fileName" : "openHomePro-1.png",
+                        "description" : "My next notable project was to redesign OHP's iOS app. This is a screenshot of our new 'Leads view'."
+                    },
+                    {
+                        "fileName" : "openHomePro-1-old.png",
+                        "description" : "This is the old version of our Leads view. Very plain and not the most inteuitive at times. Definitley in need of a UX and UI upgrade."
+                    },
+                    {
+                        "fileName" : "openHomePro-2.png",
+                        "description" : "Lead detail view. Here is where an agent can view details of a lead that visited a particular listing."
+                    },
+                    {
+                        "fileName" : "openHomePro-3.png",
+                        "description" : "Listings view. This view allows an agent to see all their listings and quickly see how many leads they've received from a particular listing."
+                    },
+                    {
+                        "fileName" : "openHomePro-4.png",
+                        "description" : "Listing detail view. Here the agent can update their listing's information and begin their open house.",
+                        "end" : true
+                    },
+                    {
+                        "fileName" : "openHomePro-appDownloads.gif",
+                        "description" : "We needed a way for users to download an app or email a link to themselves for later. I designed app store badges that looked reminicent of traditional badges but added a dropdown that allows the user to email the link to a specified email address or download the app directly. I wanted to the interaction to be smooth and modern so I used some CSS3 techniques to spice up the display."
                     }
                 ]
             }
@@ -20,14 +130,15 @@
             "id": 2,
             "title":"Rise & Shine",
             "subtitle":"An alarm clock app that won't stop until you smile in to the camera.",
-            "theme":"#623E38",
+            "theme":"#F4964E",
             "name":"rise-and-shine",
             "images": {
                 "thumb":"riseAndShine.png",
                 "collection" : [
                     {
                         "fileName" : "riseAndShine-hero.png",
-                        "description" : "Designing this app was a ton of fun. It's concept is unque and beneficial to those who have a hard time waking up happy. Studies show that being forced to smile in the morning makes your day much better. I made that up."
+                        "description" : "Designing this app was a ton of fun. It's concept is unque and beneficial to those who have a hard time waking up happy. Studies show that being forced to smile in the morning makes your day much better. I made that up.",
+                        "hero" : true
                     },
                     {
                         "fileName" : "riseAndShine-1.png",
@@ -67,7 +178,8 @@
                 "collection": [
                     {
                         "fileName" : "flyleaf-hero.png",
-                        "description" : "My initial task was to create a logo and color scheme for Flyleaf which later evolved in to designing, coding, and launching their website."
+                        "description" : "My initial task was to create a logo and color scheme for Flyleaf which later evolved in to designing, coding, and launching their website.",
+                        "hero" : true
                     },
                     {
                         "fileName" : "flyleaf-notebook.png",
@@ -75,7 +187,8 @@
                     },
                     {
                         "fileName" : "flyleaf-logos.png",
-                        "description" : "I picked a handful of concepts and drew with them in Adobe Illustrator. These were the three logos I pitched."
+                        "description" : "I picked a handful of concepts and drew with them in Adobe Illustrator. These were the three logos I pitched.",
+                        "end" : true
                     },
                     {
                         "fileName" : "flyleaf-1-story.png",
@@ -107,7 +220,8 @@
                 "collection": [
                     {
                         "fileName" : "mu.png",
-                        "description" : "Mu Optics set out to build an affordable thermal imaging device that interfaced with your smartphone or laptop. I was hired to create Mu Optic's brand and design their website and mobile app."
+                        "description" : "Mu Optics set out to build an affordable thermal imaging device that interfaced with your smartphone or laptop. I was hired to create Mu Optic's brand and design their website and mobile app.",
+                        "hero" : true
                     },
                     {
                         "fileName" : "mu-logos-notebook.png",
@@ -115,7 +229,8 @@
                     },
                     {
                         "fileName" : "mu-logos.png",
-                        "description" : "A small selection of logos that made it to the final round."
+                        "description" : "A small selection of logos that made it to the final round.",
+                        "end" : true
                     },
                     {
                         "fileName" : "muOptics-1.png",
@@ -139,7 +254,8 @@
                     },
                     {
                         "fileName" : "muOptics-6.png",
-                        "description" : "Edit mode for infrared photos and videos."
+                        "description" : "Edit mode for infrared photos and videos.",
+                        "end" : true
                     },
                     {
                         "fileName" : "muOptics-web-1.png",
@@ -163,7 +279,8 @@
                 "collection": [
                     {
                         "fileName" : "scrybe-hero.png",
-                        "description" : ""
+                        "description" : "",
+                        "hero" : true
                     },
                     {
                         "fileName" : "scrybe-1.png",
@@ -191,11 +308,13 @@
                 "collection": [
                     {
                         "fileName" : "sqipp-thumb.png",
-                        "description" : ""
+                        "description" : "",
+                        "hero" : true
                     },
                     {
                         "fileName" : "sqipp-logos.png",
-                        "description" : "Different logo considerations. Quality ranging from 'acceptable' to 'just awful'"
+                        "description" : "Different logo considerations. Quality ranging from 'acceptable' to 'just awful'",
+                        "end" : true
                     },
                     {
                         "fileName" : "sqipp-1.png",

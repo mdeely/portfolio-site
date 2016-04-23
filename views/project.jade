@@ -5,10 +5,12 @@ block navigation
     +navigation(true)
 
 block content
-    .fullscreen-image
-        .previous
-        .next
-    .project-title(style="color: #{projects[projectName].theme}")
-        h1 #{projects[projectName].title}
-        p #{projects[projectName].subtitle}
-    +imageCollection(projects[projectName])
+    +backgroundMenuFade(projects[projectName].theme)
+    .container
+        .fullscreen-image
+            .previous
+            .next
+        .project-title(style="color: #{projects[projectName].theme}")
+            h1 #{projects[projectName].title}
+            p #{projects[projectName].subtitle}
+        +imageCollection(projects[projectName])

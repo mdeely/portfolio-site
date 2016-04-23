@@ -515,10 +515,50 @@ nav.masthead ul li.name {
 nav.masthead ul li.name a {
   color: transparent;
 }
+.menu-fader {
+  position: fixed;
+  background-color: #92c3ff;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
+  -moz-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
+  -o-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
+  -ms-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
+  transition: opacity 0.4s, z-index 0.1s linear 0.4s;
+  z-index: -999;
+}
+.menu-fader.active {
+  opacity: 0.75;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+  filter: alpha(opacity=75);
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+  -o-transition: opacity 0.4s;
+  -ms-transition: opacity 0.4s;
+  transition: opacity 0.4s;
+  z-index: 99;
+}
 .container {
   padding: 14px;
   position: relative;
   background-color: #f9f9f9;
+  -webkit-transition: opacity 0.3s;
+  -moz-transition: opacity 0.3s;
+  -o-transition: opacity 0.3s;
+  -ms-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+.container.fade {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  pointer-events: none;
 }
 .container .collection-container .collection {
   text-align: center;
@@ -526,18 +566,19 @@ nav.masthead ul li.name a {
   position: relative;
   z-index: 10;
 }
-.container .collection-container .collection:first-child img {
+.container .collection-container .collection.hero img {
   -webkit-box-shadow: none;
   box-shadow: none;
   max-width: 550px;
   width: 100%;
+  cursor: auto;
 }
-.container .collection-container .collection:first-child p {
+.container .collection-container .collection.hero p {
   position: relative;
   width: 100%;
   margin: 6px auto 80px auto;
 }
-.container .collection-container .collection:first-child p span {
+.container .collection-container .collection.hero p span {
   display: block;
   max-width: 440px;
   padding: 0 30px;
@@ -545,6 +586,11 @@ nav.masthead ul li.name a {
   font-style: italic;
   margin: 0 auto;
   text-align: center;
+}
+.container .collection-container .collection.end {
+  margin-bottom: 8%;
+  padding-bottom: 8%;
+  border-bottom: 1px dashed #b7b7b7;
 }
 .container .collection-container .collection img {
   max-width: 400px;
@@ -691,7 +737,6 @@ nav.masthead ul li.name a {
 }
 .grid-item .item-content img {
   height: 100%;
-  min-height: 100px;
   width: 100%;
   vertical-align: top;
   -webkit-transition: all 0.1s ease-in-out;
