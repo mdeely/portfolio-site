@@ -25,9 +25,9 @@ mixin masthead(hero, project)
      - else
         nav.masthead
             ul
-                li: a Design
+                li.design: a Design
                 li.name: a(href="/about") Marc Deely
-                li: a Code
+                li.code: a Code
 
 mixin listProjects()
     - for project in projects

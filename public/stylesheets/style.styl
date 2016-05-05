@@ -57,7 +57,7 @@ navItemStyles() {
 
 $blue   = #92C3FF;
 $black  = #333;
-$red = #FF6161;
+$red    = #FFD0D0;
 
 $backgroundColor     = #F9F9F9;
 $backgroundDark      = #232323;
@@ -215,6 +215,7 @@ p  {
     color: #888;
 
     img {
+        pointer-events: none;
         box-shadow: 0 2px 4px rgba(black, .5);
         border-radius: 3px;
         background-color: $backgroundColor;
@@ -339,6 +340,7 @@ nav.masthead {
             -webkit-animation: hover 9s infinite;
             animation: hover 40s ease-in-out infinite;
             box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
+            transition: all .2s ease-in-out;
 
             &:nth-child(2n) { animation: hover 30s ease-in-out infinite reverse; }
             &:nth-child(3n) { animation: hover 20s ease-in-out infinite alternate; }
@@ -353,6 +355,11 @@ nav.masthead {
                     color: transparent;
                 }
             }
+
+            &.activated {
+                transition: all .1s ease-in-out;
+                box-shadow: 0 0 0 2px $blue, -1px 1px 6px rgba(0,0,0,0.1), -4px 2px 17px rgba(0,0,0,0.1);
+            }
         }
     }
 }
@@ -366,7 +373,7 @@ nav.masthead {
     bottom: 0;
     opacity: 0;
     transition: opacity .4s, z-index .1s linear .4s;
-    z-index: (-zIndexMax);
+    z-index: -(zIndexMax);
 
     &.active {
         opacity: .75;
@@ -546,19 +553,31 @@ nav.masthead {
     vertical-align: middle;
     position: relative;
     opacity: 1;
-    transition: opacity .4s ease-in-out;
+    z-index: 10;
+    transition: opacity .3s ease-in-out;
 
     &:nth-child(2n) {
-        transition-delay: .7s;
+        transition-delay: .4s;
     }
     &:nth-child(3n) {
-        transition-delay: .2s;
+        transition-delay: .1s;
     }
     &:nth-child(4n) {
-        transition-delay: .35s;
+        transition-delay: .25s;
     }
     &:nth-child(5n) {
-        transition-delay: .6s;
+        transition-delay: .35s;
+    }
+
+    &.filterHide {
+        pointer-events: none;
+        opacity: .1;
+        transition: all.2s ease-in-out;
+
+        .item-content {
+            transform: scale(.8);
+            box-shadow: 0px 2px 10px -3px rgba(0,0,0,0.6), -2px 1px 14px rgba(0,0,0,0.3);
+        }
     }
 
     // &:nth-child(2n) {
@@ -607,10 +626,10 @@ nav.masthead {
         position: relative;
         background-color: $backgroundColor;
         border-radius: 3px;
-        box-shadow: 0 1px 2px rgba(0,0,0,.55);
         overflow: hidden;
         box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
         z-index: 1;
+        transition: all .2s ease-in-out;
 
         img {
             height: 100%;

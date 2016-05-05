@@ -8,7 +8,7 @@
             "name":"graphics",
             "type":["design"],
             "images": {
-                "thumb":"trois.png",
+                "thumb":"trois_thumb.png",
                 "collection": [
                     {
                         "fileName" : "trois.png",
@@ -148,6 +148,10 @@
                         "fileName" : "riseAndShine-hero.png",
                         "description" : "Designing this app was a ton of fun. It's concept is unque and beneficial to those who have a hard time waking up happy. Studies show that being forced to smile in the morning makes your day much better. I made that up.",
                         "hero" : true
+                    },
+                    {
+                        "fileName" : "riseAndShine.png",
+                        "description" : "Loading screen design."
                     },
                     {
                         "fileName" : "riseAndShine-1.png",

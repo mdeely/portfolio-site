@@ -278,6 +278,7 @@ p {
   color: #888;
 }
 .fullscreen-image img {
+  pointer-events: none;
   -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   -webkit-border-radius: 3px;
@@ -435,10 +436,10 @@ ul.menu-container li a {
   padding: 20px;
 }
 ul.menu-container li a.current {
-  color: #ff6161;
+  color: #ffd0d0;
 }
 ul.menu-container li a.current:hover {
-  color: #ff6161;
+  color: #ffd0d0;
 }
 ul.menu-container li a:hover {
   color: #92c3ff;
@@ -473,6 +474,11 @@ nav.masthead ul li {
   animation: hover 40s ease-in-out infinite;
   -webkit-box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
   box-shadow: -3px 3px 10px rgba(0,0,0,0.1), -10px 5px 29px rgba(0,0,0,0.1);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 nav.masthead ul li:nth-child(2n) {
   -webkit-animation: hover 30s ease-in-out infinite reverse;
@@ -497,6 +503,15 @@ nav.masthead ul li.name {
 nav.masthead ul li.name a {
   color: transparent;
 }
+nav.masthead ul li.activated {
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  -webkit-box-shadow: 0 0 0 2px #92c3ff, -1px 1px 6px rgba(0,0,0,0.1), -4px 2px 17px rgba(0,0,0,0.1);
+  box-shadow: 0 0 0 2px #92c3ff, -1px 1px 6px rgba(0,0,0,0.1), -4px 2px 17px rgba(0,0,0,0.1);
+}
 .menu-fader {
   position: fixed;
   background-color: #92c3ff;
@@ -512,7 +527,7 @@ nav.masthead ul li.name a {
   -o-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
   -ms-transition: opacity 0.4s, z-index 0.1s linear 0.4s;
   transition: opacity 0.4s, z-index 0.1s linear 0.4s;
-  z-index: -zIndexMax;
+  z-index: -999;
 }
 .menu-fader.active {
   opacity: 0.75;
@@ -684,39 +699,60 @@ nav.masthead ul li.name a {
   opacity: 1;
   -ms-filter: none;
   filter: none;
-  -webkit-transition: opacity 0.4s ease-in-out;
-  -moz-transition: opacity 0.4s ease-in-out;
-  -o-transition: opacity 0.4s ease-in-out;
-  -ms-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
+  z-index: 10;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
 .portfolioLink:nth-child(2n) {
-  -webkit-transition-delay: 0.7s;
-  -moz-transition-delay: 0.7s;
-  -o-transition-delay: 0.7s;
-  -ms-transition-delay: 0.7s;
-  transition-delay: 0.7s;
+  -webkit-transition-delay: 0.4s;
+  -moz-transition-delay: 0.4s;
+  -o-transition-delay: 0.4s;
+  -ms-transition-delay: 0.4s;
+  transition-delay: 0.4s;
 }
 .portfolioLink:nth-child(3n) {
-  -webkit-transition-delay: 0.2s;
-  -moz-transition-delay: 0.2s;
-  -o-transition-delay: 0.2s;
-  -ms-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  -webkit-transition-delay: 0.1s;
+  -moz-transition-delay: 0.1s;
+  -o-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 .portfolioLink:nth-child(4n) {
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  -o-transition-delay: 0.25s;
+  -ms-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+.portfolioLink:nth-child(5n) {
   -webkit-transition-delay: 0.35s;
   -moz-transition-delay: 0.35s;
   -o-transition-delay: 0.35s;
   -ms-transition-delay: 0.35s;
   transition-delay: 0.35s;
 }
-.portfolioLink:nth-child(5n) {
-  -webkit-transition-delay: 0.6s;
-  -moz-transition-delay: 0.6s;
-  -o-transition-delay: 0.6s;
-  -ms-transition-delay: 0.6s;
-  transition-delay: 0.6s;
+.portfolioLink.filterHide {
+  pointer-events: none;
+  opacity: 0.1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  filter: alpha(opacity=10);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.portfolioLink.filterHide .item-content {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-box-shadow: 0px 2px 10px -3px rgba(0,0,0,0.6), -2px 1px 14px rgba(0,0,0,0.3);
+  box-shadow: 0px 2px 10px -3px rgba(0,0,0,0.6), -2px 1px 14px rgba(0,0,0,0.3);
 }
 .portfolioLink .item-details {
   z-index: 0;
@@ -748,12 +784,15 @@ nav.masthead ul li.name a {
   background-color: #f9f9f9;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.55);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.55);
   overflow: hidden;
   -webkit-box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
   box-shadow: -5px 3px 26px -7px rgba(0,0,0,0.5), -27px 10px 59px rgba(0,0,0,0.2);
   z-index: 1;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .portfolioLink .item-content img {
   height: 100%;

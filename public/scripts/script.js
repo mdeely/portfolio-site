@@ -3,16 +3,66 @@ $(document).ready(function() {
 
     function init() {
       gatherNodes();
+      bindHandlers();
+
       projectListLoadBehavior();
-      menuTrigger(this.$menuTrigger);
-      fullscreenImages(this.$image, this.$fsImage);
+      fullscreenImages();
       scrollToTop(this.$scrollToTop);
       lazyLoad();
     };
 
+    function gatherNodes() {
+      // Find all these via main node (which in this case is body?)
+      $body = $('body'),
+      this.$menuTrigger    = $('.menu-trigger');
+      this.$menuFader      = $('.menu-fader');
+      this.$projectFilters = $('li.design, li.code');
+      this.$projects       = $('.portfolioLink');
+      this.$images          = $('img');
+      this.$fsImage        = $('.fullscreen-image');
+      this.$scrollToTop    = $(".scrollToTop");
+    }
+
+    function bindHandlers() {
+      $( this.$menuTrigger    ).bind( 'click', toggleMenuClasses );
+      $( this.$menuFader      ).bind( 'click', toggleMenuClasses );
+      $( this.$projectFilters ).bind( 'click', filterProjects );
+      $( this.$images         ).bind( 'click', handleImageClick );
+      $( this.$fsImage        ).bind( 'click', handleFsImageClick );
+    }
+
+    function filterProjects() {
+
+      console.log(this.$projects);
+      if ($(this).hasClass('activated')) {
+        showAllProjects();
+        return;
+      }
+
+      var filterClass = $(this).attr('class');
+      $(this).addClass('activated');
+      showProjects(filterClass);
+    }
+
+    function showAllProjects() {
+      $(this.$projectFilters).removeClass('activated');
+      $(this.$projects).removeClass('filterHide');
+    }
+
+    function showProjects(filterClass) {
+      this.$projects.each( function(index, project) {
+        if ( $(project).hasClass( filterClass ) ) {
+          $(project).removeClass('filterHide');
+        }
+        else {
+          $(project).addClass('filterHide');
+        }
+      });
+    }
+
     function projectListLoadBehavior() {
       $('.container').addClass('fade');
-      $('.portfolioLink').imagesLoaded( function() {
+      $('.portfolioLink, .collection-container').imagesLoaded( function() {
         $('.container').removeClass('fade');
       });
     }
@@ -24,60 +74,54 @@ $(document).ready(function() {
       });
     }
 
-    function gatherNodes() {
-      $body = $('body'),
-      this.$menuTrigger = $('.menu-trigger');
-      this.$image       = $('img');
-      this.$fsImage     = $('.fullscreen-image');
-      this.$scrollToTop = $(".scrollToTop");
+    function fullscreenImages() {
+      $(document).keyup(function(evt) {
+        if (evt.keyCode == 39)
+        {
+          alert("you pressed next!")
+        }
+
+        if (evt.keyCode == 37)
+        {
+          alert("you pressed previous!");
+        }
+      });
     }
-
-    function fullscreenImages(images, fsImage) {
-      images.on('click', function(evt) {
-        handleImageClick($(this), fsImage);
-      });
-
-      fsImage.on('click', function(evt) {
-        handleFsImageClick(fsImage);
-      });
-    };
 
     function handleFsImageClick(fsImage) {
-      fsImage.empty().fadeOut(300);
+      var $fsImage = $(fsImage.target);
+
+      $fsImage.empty().fadeOut(300);
       toggleNoScroll();
     }
 
-    function handleImageClick(image, fsImage) {
-      if (image.parent().hasClass('hero'))
+    function handleImageClick(image) {
+      var $image = $(image.target);
+
+      if ($image.parent().hasClass('hero'))
         return
 
-      var src = image.attr('src');
-      var desc = image.next().contents().text();
+      var src = $image.attr('src');
+      var desc = $image.next().contents().text();
 
-      // nextImg = image.parent().next(".collection").children('img');
-      // prevImg = image.parent().prev(".collection").children('img');
+      populateFullscreenImage(src, desc);
 
-      fsImage.append('<img src='+src+'><p>'+desc+'</p>');
-      fsImage.fadeIn(200);
-      toggleNoScroll();
+      // nextImg = $image.parent().next(".collection").children('img');
+      // prevImg = $image.parent().prev(".collection").children('img');
     }
+
+      function populateFullscreenImage(src, desc) {
+        $(this.$fsImage).append('<img src='+src+'><p>'+desc+'</p>');
+        $(this.$fsImage).fadeIn(200);
+        toggleNoScroll();
+      }
 
     function toggleNoScroll() {
       $('body').toggleClass('no-scroll');
     }
 
-    function menuTrigger(triggers) {
-      triggers.on('click', function(evt) {
-        toggleMenuClasses(triggers);
-      });
-
-      $(".menu-fader").on('click', function(evt) {
-        toggleMenuClasses(triggers);
-      })
-    };
-
-    function toggleMenuClasses(triggers) {
-      triggers.toggleClass('triggered');
+    function toggleMenuClasses() {
+      $('.menu-trigger').toggleClass('triggered');
       $('.menu-container').toggleClass('open');
       $(".menu-fader").toggleClass('active');
       toggleNoScroll();
