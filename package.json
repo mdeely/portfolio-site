@@ -9,9 +9,5 @@
     "jade": "^1.0.4",
     "stylus": "^0.49.1",
     "nib": "^1.0.4"
-  },
-  "engines": {
-      "node": "4.2.1",
-  },
-  "start": "node app.js"
+  }
 }
