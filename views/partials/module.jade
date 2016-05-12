@@ -50,7 +50,7 @@ mixin imageCollection(project)
                             span !{image.description}
                 - else
                     .collection(class=(image.end === true ? "end" : ""))
-                        img(data-original='https://s3.amazonaws.com/mdeely-portfolio-assets/images/#{project.name}/#{image.fileName}' class='lazy')
+                        img(data-img-index='#{index}' data-original='https://s3.amazonaws.com/mdeely-portfolio-assets/images/#{project.name}/#{image.fileName}' class='lazy')
                         p
                             span !{image.description}
 

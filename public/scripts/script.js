@@ -78,14 +78,23 @@ $(document).ready(function() {
       $(document).keyup(function(evt) {
         if (evt.keyCode == 39)
         {
-          alert("you pressed next!")
+          imageSlideshow("next");
         }
 
         if (evt.keyCode == 37)
         {
-          alert("you pressed previous!");
+          imageSlideshow("previous");
         }
       });
+    }
+
+    function imageSlideshow(navigation) {
+      if (navigation == "next") {
+        alert("you pressed next!");
+      }
+      else if (navigation == "previous") {
+        alert("you pressed previous!");
+      }
     }
 
     function handleFsImageClick(fsImage) {
