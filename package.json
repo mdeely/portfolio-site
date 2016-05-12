@@ -10,6 +10,9 @@
     "stylus": "^0.49.1",
     "nib": "^1.0.4"
   },
+  "scripts": {
+    "start": "node app.js"
+  },
   "engines": {
       "node": "4.2.1"
   }
